@@ -8,20 +8,26 @@ const Header = (props) => {
   )
 }
 
-const Content = ({ parts }) => {
+const Part = (props) => {
   return (
-    <>
-      {parts.map((part, index) => (
-        <p key={index}>
-          {part.name} {part.exercises}
-        </p>
-      ))}
-    </>
+    <p>
+      {props.name} {props.exercises}
+    </p>
   );
 }
 
-const Total = ({ parts }) => {
-  const total = parts.reduce((sum, part) => sum + part.exercises, 0);
+const Content = (props) => {
+  return (
+    <div>
+      {props.parts.map((part, index) => (
+        <Part key={index} name={part.name} exercises={part.exercises} />
+      ))}
+    </div>
+  );
+}
+
+const Total = (props) => {
+  const total = props.parts.reduce((sum, part) => sum + part.exercises, 0);
 
   return (
     <p>
