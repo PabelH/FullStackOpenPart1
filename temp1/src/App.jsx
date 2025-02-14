@@ -32,6 +32,7 @@ const App = () => {
     const updatedLeft = left + 1
     setLeft(updatedLeft)
     setTotal(updatedLeft + right)
+
   }
 
   const handleRightClick = () => {
@@ -39,13 +40,14 @@ const App = () => {
     setRight(right + 1)
     setTotal(left + right)
   }
-
+  
   return (
     <div>
       {left}
       <Button handleClick={handleLeftClick} text='left' />
       <Button handleClick={handleRightClick} text='right' />
       {right}
+       
       <History allClicks={allClicks} />
     </div>
   )
