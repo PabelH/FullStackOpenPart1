@@ -14,10 +14,17 @@ const App = () => {
 
   const [selected, setSelected] = useState(0)
 
+  const handleSwitchAnecdote = () => {
+    const randomIndex = Math.floor(Math.random() * anecdotes.length)
+    setSelected(randomIndex)
+  }
+
   return (
-    <div>
-      {anecdotes[selected]}
-    </div>
+    <>
+
+      <div>{anecdotes[selected]}</div>
+      <button onClick={handleSwitchAnecdote}>next anecdote</button>
+    </>
   )
 }
 
